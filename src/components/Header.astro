@@ -1,7 +1,5 @@
 ---
-import { SITE_TITLE } from '../consts';
-
-const LINKS = ['Ahabanza', 'Politiki', 'Ubukungu', 'Imyidagaduro', 'Siporo'];
+import { SITE_TITLE, CATEGORIES } from '../consts';
 ---
 
 <header>
@@ -13,25 +11,16 @@ const LINKS = ['Ahabanza', 'Politiki', 'Ubukungu', 'Imyidagaduro', 'Siporo'];
         </a>
       </li>
     </ul>
-    <ul class="responsive">
-      {
-        LINKS.map((link) => (
-          <li>
-            <a href="/" class="contrast">
-              {link}
-            </a>
-          </li>
-        ))
-      }
-      <li class="small-only">
+    <ul>
+      <li>
         <details class="dropdown">
           <summary>Menu</summary>
           <ul dir="rtl">
             {
-              LINKS.map((link) => (
+              CATEGORIES.map((category) => (
                 <li>
-                  <a href="/" class="contrast">
-                    {link}
+                  <a href=`${category}` class="contrast">
+                    {category[0].toUpperCase() + category.slice(1)}
                   </a>
                 </li>
               ))

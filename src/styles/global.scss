@@ -1,15 +1,1 @@
 @use '@picocss/pico/scss/pico';
-
-nav li.small-only {
-  display: none;
-}
-
-@media (width <= 49rem) {
-  nav li.small-only {
-    display: block;
-  }
-
-  nav .responsive > li:not(.small-only) {
-    display: none;
-  }
-}

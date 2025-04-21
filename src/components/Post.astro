@@ -39,6 +39,10 @@ const { id, data } = Astro.props;
       .title {
         --pico-color: var(--pico-h1-color);
         @include white-color();
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
       }
     }
 
