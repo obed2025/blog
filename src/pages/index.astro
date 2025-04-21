@@ -6,36 +6,18 @@ import Post from '../components/Post.astro';
 const posts = (await getCollection('blog')).sort(
   (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
 );
-
-const firstPost = posts[0];
-const otherPosts = posts.slice(1);
 ---
 
 <MainLayout>
-  <div class="first-post">
-    <Post id={firstPost.id} data={firstPost.data} />
-  </div>
   <section>
-    {otherPosts.map((post) => <Post id={post.id} data={post.data} />)}
+    {posts.map((post) => <Post id={post.id} data={post.data} />)}
   </section>
 </MainLayout>
 
 <style>
-  .first-post {
-    padding-inline: 12.5%;
-    overflow: hidden;
-    margin-bottom: 1rem;
-  }
-
   section {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(min(300px, 100%), 1fr));
     gap: 1rem;
-  }
-
-  @media (width <= 50rem) {
-    .first-post {
-      padding: 0;
-    }
   }
 </style>
