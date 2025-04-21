@@ -5,7 +5,7 @@ import MainLayout from './MainLayout.astro';
 
 type Props = CollectionEntry<'blog'>['data'];
 
-const { title, description, pubDate, updatedDate, heroImage } = Astro.props;
+const { title, description, pubDate, updatedDate, heroImage, category } = Astro.props;
 ---
 
 <MainLayout {title} {description} image={heroImage}>
@@ -13,6 +13,8 @@ const { title, description, pubDate, updatedDate, heroImage } = Astro.props;
     <header>
       <h1>{title}</h1>
       <small>{description}</small>
+      {category?.length ? <br /> : ''}
+      {category?.map(cat => <a href=`/${cat}` class="cat-link">{cat}</a>)}
       <img src={heroImage} alt="" /><br />
       <FormattedDate date={pubDate} title="Yasohotse:" /><br />
       {
@@ -32,5 +34,9 @@ const { title, description, pubDate, updatedDate, heroImage } = Astro.props;
     display: block;
     margin-inline: auto;
     margin-block: 1rem;
+  }
+
+  .cat-link {
+    margin-right: .5rem;
   }
 </style>
