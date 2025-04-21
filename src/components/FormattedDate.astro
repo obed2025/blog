@@ -5,18 +5,33 @@ interface Props {
 }
 
 const { date, title } = Astro.props;
+
+const rwandanMonthNames = [
+  'Mutarama',
+  'Gashyantare',
+  'Werurwe',
+  'Mata',
+  'Gicurasi',
+  'Kamena',
+  'Nyakanga',
+  'Kanama',
+  'Nzeli',
+  'Ukwakira',
+  'Ugushyingo',
+  'Ukuboza',
+];
+
+const day = date.getDate();
+const month = rwandanMonthNames[date.getMonth()];
+const year = date.getFullYear();
 ---
 
 <div>
   {title ? <span>{title}</span> : ''}
 
   <time datetime={date.toISOString()}>
-    {
-      date.toLocaleDateString('en-us', {
-        year: 'numeric',
-        month: 'short',
-        day: 'numeric',
-      })
-    }
+    {day}
+    {month}
+    {year}
   </time>
 </div>
