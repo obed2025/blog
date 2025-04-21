@@ -14,8 +14,14 @@ const { title, description, pubDate, updatedDate, heroImage } = Astro.props;
       <h1>{title}</h1>
       <small>{description}</small>
       <img src={heroImage} alt="" /><br />
-      <FormattedDate date={pubDate} title="Published:" /><br />
-      {updatedDate ? <FormattedDate title="Updated:" date={updatedDate} /> : ''}
+      <FormattedDate date={pubDate} title="Yasohotse:" /><br />
+      {
+        updatedDate ? (
+          <FormattedDate title="Yahinduwe:" date={updatedDate} />
+        ) : (
+          ''
+        )
+      }
     </header>
     <slot />
   </article>
